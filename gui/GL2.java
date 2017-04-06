@@ -22,7 +22,7 @@
 
 package igeo.gui;
 
-import javax.media.opengl.*;
+import com.jogamp.opengl.*;
 
 /**
    Fake GL2 interface for compiling old GL code

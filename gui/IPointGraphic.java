@@ -22,7 +22,7 @@
 
 package igeo.gui;
 
-//import javax.media.opengl.*;
+//import com.jogamp.opengl.*;
 
 import igeo.*;
 

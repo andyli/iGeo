@@ -24,7 +24,7 @@ package igeo.gui;
 
 import java.awt.*;
 import java.nio.ByteBuffer;
-//import javax.media.opengl.*;
+//import com.jogamp.opengl.*;
 
 import igeo.*;
 

@@ -148,8 +148,8 @@ public class PIGraphics3D extends PGraphics3D
 	subGraphics[1][1].setParent(parent); // ?
 	subGraphics[1][0].setParent(parent); // ?
 
-	int w = parent.getWidth();
-	int h = parent.getHeight();
+	int w = parent.width;
+	int h = parent.height;
 	
 	//subGraphics[0][0].setSize(w/2,h/2);
 	//subGraphics[0][1].setSize(w/2,h/2);
@@ -167,7 +167,7 @@ public class PIGraphics3D extends PGraphics3D
 	// panel = new IGridPanel(0,0,parent.getWidth(),parent.getHeight(),2,2, subGraphics);
 	//panel = new IGridPanel(0,0,parent.getWidth(),parent.getHeight(),1,1, new IPane[][]{ new IPane[]{ this } });
 	
-	panel = new IGridPanel(0,0,parent.getWidth(),parent.getHeight(),2,2, subGraphics);
+	panel = new IGridPanel(0,0,parent.width,parent.height,2,2, subGraphics);
 	
 	panel.setVisible(true); // ?
 	panel.setParent(parent);
@@ -180,9 +180,9 @@ public class PIGraphics3D extends PGraphics3D
 	
 	//ig.setBasePath(parent.sketchPath("")); // not sketchPath
 	
-	ig.setOnline(parent.online);
+	ig.setOnline(parent.getAppletContext() == null);
 	
-	if(!parent.online){ // only when running local
+	if(parent.getAppletContext() != null){ // only when running local
 	    ig.setBasePath(parent.dataPath("")); // for default path to read/write files
 	}
 	
@@ -193,9 +193,9 @@ public class PIGraphics3D extends PGraphics3D
 	}
 	//noSmooth();
 	
-	if(PIConfig.drawBeforeProcessing) parent.registerPre(this);
-	else parent.registerDraw(this);
-	parent.registerPost(this);
+	if(PIConfig.drawBeforeProcessing) parent.registerMethod("pre", this);
+	else parent.registerMethod("draw", this);
+	parent.registerMethod("post", this);
 	
 	if(PIConfig.resizable){ parent.frame.setResizable(true); }
 	

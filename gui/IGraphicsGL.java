@@ -24,7 +24,7 @@ package igeo.gui;
 
 
 import igeo.*;
-import javax.media.opengl.*;
+import com.jogamp.opengl.*;
 
 
 /**

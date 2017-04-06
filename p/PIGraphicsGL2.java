@@ -25,7 +25,7 @@ package igeo.p;
 import processing.core.*;
 import processing.opengl.*;
 
-import javax.media.opengl.*;
+import com.jogamp.opengl.*;
 
 import java.awt.event.*;
 import java.awt.geom.*;
@@ -85,7 +85,7 @@ public class PIGraphicsGL2 extends PGraphics3D /*PGraphicsOpenGL*/
 	super.setParent(parent);
 	
 	// initialize root GUI
-	panel = new IGridPanel(0,0,parent.getWidth(),parent.getHeight(),2,2);
+	panel = new IGridPanel(0,0,parent.width,parent.height,2,2);
 	panel.setVisible(true); 
 	
 	panel.setParent(parent);
@@ -96,9 +96,9 @@ public class PIGraphicsGL2 extends PGraphics3D /*PGraphicsOpenGL*/
 	ig.server().graphicServer().enableGL(); //
 	//ig.setBasePath(parent.sketchPath("")); // not sketchPath
 	
-	ig.setOnline(parent.online);
+	ig.setOnline(parent.getAppletContext() == null);
 	
-	if(!parent.online){ // only when running local
+	if(parent.getAppletContext() != null){ // only when running local
 	    ig.setBasePath(parent.dataPath("")); // for default path to read/write files
 	}
 	
@@ -133,9 +133,9 @@ public class PIGraphicsGL2 extends PGraphics3D /*PGraphicsOpenGL*/
 	//noSmooth();
 	
 	
-	if(PIConfig.drawBeforeProcessing){ parent.registerPre(this); }
-	else{ parent.registerDraw(this); }
-	parent.registerPost(this);
+	if(PIConfig.drawBeforeProcessing){ parent.registerMethod("pre", this); }
+	else{ parent.registerMethod("draw", this); }
+	parent.registerMethod("post", this);
 	
 	
 	if(PIConfig.resizable && parent.frame!=null){ // frame seems to be null in exported applet

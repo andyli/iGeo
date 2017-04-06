@@ -23,7 +23,7 @@
 package igeo.gui;
 //package igeo.gl;
 
-import javax.media.opengl.*;
+import com.jogamp.opengl.*;
 
 /**
    Objectified OpenGL quad strip drawing process.

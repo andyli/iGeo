@@ -23,10 +23,10 @@ package igeo;
 
 import java.awt.*;
 import java.awt.event.*;
-import javax.media.opengl.*;
+import com.jogamp.opengl.*;
 //import com.sun.opengl.util.*;
 import com.jogamp.opengl.util.*; // processing 2.0
-import javax.media.opengl.awt.*; // processing 2.0
+import com.jogamp.opengl.awt.*; // processing 2.0
 
 import igeo.gui.*;
 
@@ -68,7 +68,7 @@ public class IApplicationGL2 implements GLEventListener /*, IPanelAdapter*/{
 	GL gl = drawable.getGL();
 	setGLProperties(gl);
 	
-	panel = new IGridPanel(0,0,drawable.getWidth(),drawable.getHeight(),2,2);
+	panel = new IGridPanel(0,0,drawable.getSurfaceWidth(),drawable.getSurfaceHeight(),2,2);
 	panel.setVisible(true);
 	panel.setParent(frame);
 	//panel.setAdapter(this);

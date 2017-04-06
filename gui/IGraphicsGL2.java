@@ -25,7 +25,7 @@ package igeo.gui;
 //import processing.core.*;
 //import processing.opengl.*;
 
-import javax.media.opengl.*;
+import com.jogamp.opengl.*;
 
 import java.awt.event.*;
 import java.awt.geom.*;

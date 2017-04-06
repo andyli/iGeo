@@ -30,7 +30,7 @@ import java.lang.reflect.*;
 import igeo.*;
 
 
-import javax.media.opengl.*;
+import com.jogamp.opengl.*;
 //import com.sun.opengl.util.j2d.TextRenderer; // processing 1.5
 import com.jogamp.opengl.util.awt.TextRenderer; // processing 2.0
 

@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.awt.event.*;
 import java.awt.geom.*;
 
-import javax.media.opengl.*;
+import com.jogamp.opengl.*;
 
 
 import igeo.gui.*;
